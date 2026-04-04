@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icon/add.png</file>
+        <file>Icon/adjust.png</file>
+        <file>Icon/head.png</file>
+        <file>Icon/maxvolume.png</file>
+        <file>Icon/mute.png</file>
+        <file>Icon/next.png</file>
+        <file>Icon/palylist.png</file>
+        <file>Icon/pause.png</file>
+        <file>Icon/play.png</file>
+        <file>Icon/prev.png</file>
+        <file>Icon/random.png</file>
+        <file>Icon/replay.png</file>
+        <file>Icon/tail.png</file>
+        <file>Icon/volume.png</file>
+        <file>Icon/volumedown.png</file>
+        <file>Icon/volumeup.png</file>
+    </qresource>
+</RCC>
