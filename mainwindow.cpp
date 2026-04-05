@@ -1,6 +1,17 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QIcon>
+#include<QPixmap>
+#include<QPalette>
+void MainWindow::setbackground(const QString&filename)
+{
+    QPixmap pixmap(filename);
+    QSize windowSize=this->size();
+    QPixmap scalePixmap=pixmap.scaled(windowSize,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+    QPalette palette=this->palette();
+    palette.setBrush(QPalette::Window,QBrush(scalePixmap));
+    this->setPalette(palette);
+}
 void MainWindow::setButtonStyle(QPushButton * button,const QString&filename)
 {
     button->setFixedSize(50,50);
@@ -24,6 +35,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("uma音乐播放器");
+    setFixedSize(1100,660);//固定尺寸
+    setbackground(":/background/bg1.png");
     initbutton();
 
 }

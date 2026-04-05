@@ -119,7 +119,8 @@ debug/qrc_res.cpp: ../../res.qrc \
 		../../Icon/palylist.png \
 		../../Icon/volumeup.png \
 		../../Icon/mute.png \
-		../../Icon/play.png
+		../../Icon/play.png \
+		../../background/bg1.png
 	C:\QT\6.10.1\mingw_64\bin\rcc.exe -name res --no-zstd ..\..\res.qrc -o debug\qrc_res.cpp
 
 compiler_moc_predefs_make_all: debug/moc_predefs.h
@@ -788,7 +789,9 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/QStatusBar \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qstatusbar.h \
-		C:/QT/6.10.1/mingw_64/include/QtWidgets/QWidget
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QWidget \
+		C:/QT/6.10.1/mingw_64/include/QtGui/QIcon \
+		C:/QT/6.10.1/mingw_64/include/QtGui/QPalette
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\..\mainwindow.cpp
 
 debug/qrc_res.o: debug/qrc_res.cpp 

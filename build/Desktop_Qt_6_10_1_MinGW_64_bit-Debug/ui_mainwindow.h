@@ -25,6 +25,7 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QWidget *widget;
+    QHBoxLayout *horizontalLayout_2;
     QHBoxLayout *horizontalLayout;
     QPushButton *headBtn;
     QPushButton *prevBtn;
@@ -45,10 +46,11 @@ public:
         centralwidget->setObjectName("centralwidget");
         widget = new QWidget(centralwidget);
         widget->setObjectName("widget");
-        widget->setGeometry(QRect(110, 340, 482, 141));
-        horizontalLayout = new QHBoxLayout(widget);
+        widget->setGeometry(QRect(30, 510, 611, 121));
+        horizontalLayout_2 = new QHBoxLayout(widget);
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
         headBtn = new QPushButton(widget);
         headBtn->setObjectName("headBtn");
 
@@ -83,6 +85,9 @@ public:
         volBtn->setObjectName("volBtn");
 
         horizontalLayout->addWidget(volBtn);
+
+
+        horizontalLayout_2->addLayout(horizontalLayout);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);

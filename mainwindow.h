@@ -19,6 +19,7 @@ public:
     ~MainWindow();
 
 private:
+    void setbackground(const QString&filename);
     void initbutton();
     void setButtonStyle(QPushButton * button,const QString&filename);
     Ui::MainWindow *ui;
