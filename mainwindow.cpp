@@ -35,10 +35,16 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("uma音乐播放器");
+    m_player=new QMediaPlayer(this);
+    m_audiooutput=new QAudioOutput(this);
+    m_player->setAudioOutput(m_audiooutput); // 强制绑定
+    m_audiooutput->setVolume(0.2); // 设置默认音量（0.0~1.0）
     setFixedSize(1100,660);//固定尺寸
     setbackground(":/background/bg1.png");
     initbutton();
-
+    QString musicpath="C:\\QTproject\\MusicPlayer\\MusicPlayer\\music\\富士山下-陈奕迅.mp3";
+    m_player->setSource(QUrl::fromLocalFile(musicpath));
+    m_player->play();
 }
 
 
