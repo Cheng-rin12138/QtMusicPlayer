@@ -30,7 +30,6 @@ public:
     QPushButton *headBtn;
     QPushButton *prevBtn;
     QPushButton *playBtn;
-    QPushButton *pauseBtn;
     QPushButton *nextBtn;
     QPushButton *tailBtn;
     QPushButton *volBtn;
@@ -65,11 +64,6 @@ public:
         playBtn->setObjectName("playBtn");
 
         horizontalLayout->addWidget(playBtn);
-
-        pauseBtn = new QPushButton(widget);
-        pauseBtn->setObjectName("pauseBtn");
-
-        horizontalLayout->addWidget(pauseBtn);
 
         nextBtn = new QPushButton(widget);
         nextBtn->setObjectName("nextBtn");
@@ -109,7 +103,6 @@ public:
         headBtn->setText(QString());
         prevBtn->setText(QString());
         playBtn->setText(QString());
-        pauseBtn->setText(QString());
         nextBtn->setText(QString());
         tailBtn->setText(QString());
         volBtn->setText(QString());

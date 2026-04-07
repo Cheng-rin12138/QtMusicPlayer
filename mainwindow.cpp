@@ -24,11 +24,27 @@ void MainWindow::initbutton()
     setButtonStyle(ui->headBtn,":/Icon/head.png");
     setButtonStyle(ui->prevBtn,":/Icon/prev.png");
     setButtonStyle(ui->playBtn,":/Icon/play.png");
-    setButtonStyle(ui->pauseBtn,":/Icon/pause.png");
     setButtonStyle(ui->nextBtn,":/Icon/next.png");
     setButtonStyle(ui->tailBtn,":/Icon/tail.png");
     setButtonStyle(ui->volBtn,":/Icon/volume.png");
 }
+void MainWindow::handlePlaySlot()
+{
+    if(m_player->playbackState()==QMediaPlayer::PlayingState)
+    {
+        m_player->pause();
+        ui->playBtn->setIcon(QIcon(":/Icon/play.png"));
+    }
+    else
+    {
+        m_player->play();
+        ui->playBtn->setIcon(QIcon(":/Icon/pause.png"));
+    }
+}
+
+
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -44,7 +60,7 @@ MainWindow::MainWindow(QWidget *parent)
     initbutton();
     QString musicpath="C:\\QTproject\\MusicPlayer\\MusicPlayer\\music\\富士山下-陈奕迅.mp3";
     m_player->setSource(QUrl::fromLocalFile(musicpath));
-    m_player->play();
+    connect(ui->playBtn,&QPushButton::clicked,this,&MainWindow::handlePlaySlot);
 }
 
 
