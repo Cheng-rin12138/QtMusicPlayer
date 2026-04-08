@@ -1,8 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QIcon>
+
 #include<QPixmap>
 #include<QPalette>
+
+#include<QDir>
+#include<QFile>
+#include<QFileInfo>
+
+#include<QMessageBox>
 void MainWindow::setbackground(const QString&filename)
 {
     QPixmap pixmap(filename);
@@ -41,7 +48,22 @@ void MainWindow::handlePlaySlot()
         ui->playBtn->setIcon(QIcon(":/Icon/pause.png"));
     }
 }
-
+void MainWindow::loadAppointMusicDir(const QString&filepath)
+{
+    QDir dir(filepath);
+    if(dir.exists()==false)
+    {
+        QMessageBox::warning(this,"文件夹","文件夹不存在");
+    }
+    QFileInfoList filelist=dir.entryInfoList(QDir::Files);
+    for(auto element:filelist)
+    {
+        if(element.suffix()=="mp3")
+        {
+            ui->musicList->addItem(element.fileName());
+        }
+    }
+}
 
 
 
@@ -59,6 +81,8 @@ MainWindow::MainWindow(QWidget *parent)
     setbackground(":/background/bg1.png");
     initbutton();
     QString musicpath="C:\\QTproject\\MusicPlayer\\MusicPlayer\\music\\富士山下-陈奕迅.mp3";
+    QString musicDir="C:\\QTproject\\MusicPlayer\\MusicPlayer\\music\\";
+    loadAppointMusicDir(musicDir);
     m_player->setSource(QUrl::fromLocalFile(musicpath));
     connect(ui->playBtn,&QPushButton::clicked,this,&MainWindow::handlePlaySlot);
 }

@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -33,6 +34,7 @@ public:
     QPushButton *nextBtn;
     QPushButton *tailBtn;
     QPushButton *volBtn;
+    QListWidget *musicList;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -83,6 +85,9 @@ public:
 
         horizontalLayout_2->addLayout(horizontalLayout);
 
+        musicList = new QListWidget(centralwidget);
+        musicList->setObjectName("musicList");
+        musicList->setGeometry(QRect(580, 90, 256, 421));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");

@@ -26,6 +26,7 @@ private:
     void setbackground(const QString&filename);
     void initbutton();
     void setButtonStyle(QPushButton * button,const QString&filename);
+    void loadAppointMusicDir(const QString&filepath);
     Ui::MainWindow *ui;
     QMediaPlayer * m_player;
     QAudioOutput * m_audiooutput;
