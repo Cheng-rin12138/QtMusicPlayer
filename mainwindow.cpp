@@ -9,6 +9,8 @@
 #include<QFile>
 #include<QFileInfo>
 
+#include<QCoreApplication>
+
 #include<QMessageBox>
 void MainWindow::setbackground(const QString&filename)
 {
@@ -82,7 +84,20 @@ void MainWindow::playSelectMusic(QListWidgetItem * item)
     m_player->setSource(QUrl::fromLocalFile(path));
     m_player->play();
 }
+QString getCorrectMusicDir()
+{
+    //exe 同级（打包后用）
+    QString dir1 = QCoreApplication::applicationDirPath() + "/music/";
+    if (QDir(dir1).exists()) return dir1;
 
+    //从 build 目录回退到项目根目录（调试用）
+    // 你的 exe 在 build/debug/，回退3级就是项目根目录
+    QString dir2 = QCoreApplication::applicationDirPath() + "/../../music/";
+    if (QDir(dir2).exists()) return dir2;
+
+    //兜底：直接写项目根目录
+    return "C:/QTproject/MusicPlayer/MusicPlayer/music/";
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -97,7 +112,10 @@ MainWindow::MainWindow(QWidget *parent)
     setFixedSize(1100,660);//固定尺寸
     setbackground(":/background/bg1.png");
     initbutton();
-    QString musicDir="C:\\QTproject\\MusicPlayer\\MusicPlayer\\music\\";
+    QString musicDir=getCorrectMusicDir();
+    qDebug() << "实际查找路径：" << musicDir;
+    qDebug() << "文件夹是否存在：" << QDir(musicDir).exists();
+
     loadAppointMusicDir(musicDir);
     connect(ui->playBtn,&QPushButton::clicked,this,&MainWindow::handlePlaySlot);
     connect(ui->list,&QPushButton::clicked,this,&MainWindow::listvisible);
