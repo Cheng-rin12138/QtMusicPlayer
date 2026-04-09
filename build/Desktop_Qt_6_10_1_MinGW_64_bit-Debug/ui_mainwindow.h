@@ -34,6 +34,7 @@ public:
     QPushButton *nextBtn;
     QPushButton *tailBtn;
     QPushButton *volBtn;
+    QPushButton *list;
     QListWidget *musicList;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -82,6 +83,11 @@ public:
 
         horizontalLayout->addWidget(volBtn);
 
+        list = new QPushButton(widget);
+        list->setObjectName("list");
+
+        horizontalLayout->addWidget(list);
+
 
         horizontalLayout_2->addLayout(horizontalLayout);
 
@@ -111,6 +117,7 @@ public:
         nextBtn->setText(QString());
         tailBtn->setText(QString());
         volBtn->setText(QString());
+        list->setText(QString());
     } // retranslateUi
 
 };

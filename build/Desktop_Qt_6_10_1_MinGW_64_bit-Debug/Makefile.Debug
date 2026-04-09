@@ -105,6 +105,7 @@ compiler_rcc_clean:
 debug/qrc_res.cpp: ../../res.qrc \
 		C:/QT/6.10.1/mingw_64/bin/rcc.exe \
 		../../Icon/adjust.png \
+		../../Icon/playlist.png \
 		../../Icon/random.png \
 		../../Icon/pause.png \
 		../../Icon/maxvolume.png \
@@ -116,7 +117,6 @@ debug/qrc_res.cpp: ../../res.qrc \
 		../../Icon/replay.png \
 		../../Icon/add.png \
 		../../Icon/tail.png \
-		../../Icon/palylist.png \
 		../../Icon/volumeup.png \
 		../../Icon/mute.png \
 		../../Icon/play.png \
@@ -346,6 +346,24 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/QT/6.10.1/mingw_64/include/QtMultimedia/qaudio.h \
 		C:/QT/6.10.1/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/QT/6.10.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlistview.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/QT/6.10.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		C:/QT/6.10.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/QT/6.10.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/QT/6.10.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qrubberband.h \
 		debug/moc_predefs.h \
 		C:/QT/6.10.1/mingw_64/bin/moc.exe
 	C:\QT\6.10.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/QTproject/MusicPlayer/MusicPlayer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/QT/6.10.1/mingw_64/mkspecs/win32-g++ -IC:/QTproject/MusicPlayer/MusicPlayer -IC:/QT/6.10.1/mingw_64/include -IC:/QT/6.10.1/mingw_64/include/QtMultimediaWidgets -IC:/QT/6.10.1/mingw_64/include/QtMultimedia -IC:/QT/6.10.1/mingw_64/include/QtWidgets -IC:/QT/6.10.1/mingw_64/include/QtGui -IC:/QT/6.10.1/mingw_64/include/QtNetwork -IC:/QT/6.10.1/mingw_64/include/QtCore -I. -IC:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\mainwindow.h -o debug\moc_mainwindow.cpp
@@ -587,6 +605,24 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/QT/6.10.1/mingw_64/include/QtMultimedia/qaudio.h \
 		C:/QT/6.10.1/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/QT/6.10.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlistview.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/QT/6.10.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		C:/QT/6.10.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/QT/6.10.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/QT/6.10.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/QApplication \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\main.cpp
@@ -805,16 +841,7 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/QT/6.10.1/mingw_64/include/QtMultimedia/qaudio.h \
 		C:/QT/6.10.1/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/QT/6.10.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
-		ui_mainwindow.h \
-		C:/QT/6.10.1/mingw_64/include/QtCore/QVariant \
-		C:/QT/6.10.1/mingw_64/include/QtWidgets/QApplication \
-		C:/QT/6.10.1/mingw_64/include/QtWidgets/qapplication.h \
-		C:/QT/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout \
-		C:/QT/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlayout.h \
-		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/QT/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
-		C:/QT/6.10.1/mingw_64/include/QtWidgets/QListWidget \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QListWidgetItem \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlistview.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qabstractitemview.h \
@@ -832,6 +859,16 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qstyle.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qrubberband.h \
+		ui_mainwindow.h \
+		C:/QT/6.10.1/mingw_64/include/QtCore/QVariant \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QApplication \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qapplication.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlayout.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QListWidget \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/QMenuBar \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qmenubar.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qmenu.h \

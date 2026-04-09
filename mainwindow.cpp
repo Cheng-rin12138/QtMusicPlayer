@@ -34,6 +34,7 @@ void MainWindow::initbutton()
     setButtonStyle(ui->nextBtn,":/Icon/next.png");
     setButtonStyle(ui->tailBtn,":/Icon/tail.png");
     setButtonStyle(ui->volBtn,":/Icon/volume.png");
+    setButtonStyle(ui->list,":/Icon/playlist.png");
 }
 void MainWindow::handlePlaySlot()
 {
@@ -48,6 +49,11 @@ void MainWindow::handlePlaySlot()
         ui->playBtn->setIcon(QIcon(":/Icon/pause.png"));
     }
 }
+void MainWindow::listvisible()
+{
+    listisvisible=!listisvisible;
+    ui->musicList->setVisible(listisvisible);
+}
 void MainWindow::loadAppointMusicDir(const QString&filepath)
 {
     QDir dir(filepath);
@@ -56,15 +62,26 @@ void MainWindow::loadAppointMusicDir(const QString&filepath)
         QMessageBox::warning(this,"文件夹","文件夹不存在");
     }
     QFileInfoList filelist=dir.entryInfoList(QDir::Files);
+    ui->musicList->clear();
+    m_musicpath.clear();
     for(auto element:filelist)
     {
         if(element.suffix()=="mp3")
         {
             ui->musicList->addItem(element.fileName());
+            m_musicpath.append(element.absoluteFilePath());
         }
     }
 }
+void MainWindow::playSelectMusic(QListWidgetItem * item)
+{
+    if(!item)return;
+    int index=ui->musicList->row(item);
+    QString path=m_musicpath.at(index);
 
+    m_player->setSource(QUrl::fromLocalFile(path));
+    m_player->play();
+}
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -80,11 +97,11 @@ MainWindow::MainWindow(QWidget *parent)
     setFixedSize(1100,660);//固定尺寸
     setbackground(":/background/bg1.png");
     initbutton();
-    QString musicpath="C:\\QTproject\\MusicPlayer\\MusicPlayer\\music\\富士山下-陈奕迅.mp3";
     QString musicDir="C:\\QTproject\\MusicPlayer\\MusicPlayer\\music\\";
     loadAppointMusicDir(musicDir);
-    m_player->setSource(QUrl::fromLocalFile(musicpath));
     connect(ui->playBtn,&QPushButton::clicked,this,&MainWindow::handlePlaySlot);
+    connect(ui->list,&QPushButton::clicked,this,&MainWindow::listvisible);
+    connect(ui->musicList,&QListWidget::itemClicked,this,&MainWindow::playSelectMusic);
 }
 
 
