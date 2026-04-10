@@ -25,7 +25,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *widget;
+    QWidget *buttonbar;
     QHBoxLayout *horizontalLayout_2;
     QHBoxLayout *horizontalLayout;
     QPushButton *headBtn;
@@ -43,47 +43,49 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(958, 613);
+        MainWindow->resize(1153, 691);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(30, 510, 611, 121));
-        horizontalLayout_2 = new QHBoxLayout(widget);
+        buttonbar = new QWidget(centralwidget);
+        buttonbar->setObjectName("buttonbar");
+        buttonbar->setGeometry(QRect(0, 500, 1141, 161));
+        buttonbar->setStyleSheet(QString::fromUtf8("background-color: rgba(230, 230,230, 0.9);\n"
+"border-top: 1px solid rgba(255,255,255,0.1);"));
+        horizontalLayout_2 = new QHBoxLayout(buttonbar);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        headBtn = new QPushButton(widget);
+        headBtn = new QPushButton(buttonbar);
         headBtn->setObjectName("headBtn");
 
         horizontalLayout->addWidget(headBtn);
 
-        prevBtn = new QPushButton(widget);
+        prevBtn = new QPushButton(buttonbar);
         prevBtn->setObjectName("prevBtn");
 
         horizontalLayout->addWidget(prevBtn);
 
-        playBtn = new QPushButton(widget);
+        playBtn = new QPushButton(buttonbar);
         playBtn->setObjectName("playBtn");
 
         horizontalLayout->addWidget(playBtn);
 
-        nextBtn = new QPushButton(widget);
+        nextBtn = new QPushButton(buttonbar);
         nextBtn->setObjectName("nextBtn");
 
         horizontalLayout->addWidget(nextBtn);
 
-        tailBtn = new QPushButton(widget);
+        tailBtn = new QPushButton(buttonbar);
         tailBtn->setObjectName("tailBtn");
 
         horizontalLayout->addWidget(tailBtn);
 
-        volBtn = new QPushButton(widget);
+        volBtn = new QPushButton(buttonbar);
         volBtn->setObjectName("volBtn");
 
         horizontalLayout->addWidget(volBtn);
 
-        list = new QPushButton(widget);
+        list = new QPushButton(buttonbar);
         list->setObjectName("list");
 
         horizontalLayout->addWidget(list);
@@ -93,11 +95,13 @@ public:
 
         musicList = new QListWidget(centralwidget);
         musicList->setObjectName("musicList");
-        musicList->setGeometry(QRect(580, 90, 256, 421));
+        musicList->setGeometry(QRect(800, 90, 256, 421));
         MainWindow->setCentralWidget(centralwidget);
+        musicList->raise();
+        buttonbar->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 958, 22));
+        menubar->setGeometry(QRect(0, 0, 1153, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");

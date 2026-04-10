@@ -20,20 +20,25 @@ class MainWindow : public QMainWindow
 public slots:
     void handlePlaySlot();
     void listvisible();
+    void prevmusic();
+    void nextmusic();
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private:
-    void setbackground(const QString&filename);
+    QString getBackgroundDir();
+    void setbackground();
     void initbutton();
     void setButtonStyle(QPushButton * button,const QString&filename);
     void loadAppointMusicDir(const QString&filepath);
     void playSelectMusic(QListWidgetItem * item);
+    void playByIndex(int index);
     Ui::MainWindow *ui;
     bool listisvisible=true;
-    QMediaPlayer * m_player;
-    QAudioOutput * m_audiooutput;
+    QMediaPlayer * m_player=nullptr;
+    QAudioOutput * m_audiooutput=nullptr;
     QStringList m_musicpath;
+    int m_currentIndex = -1;
 };
 #endif // MAINWINDOW_H

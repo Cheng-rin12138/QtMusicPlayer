@@ -119,8 +119,7 @@ debug/qrc_res.cpp: ../../res.qrc \
 		../../Icon/tail.png \
 		../../Icon/volumeup.png \
 		../../Icon/mute.png \
-		../../Icon/play.png \
-		../../background/bg1.png
+		../../Icon/play.png
 	C:\QT\6.10.1\mingw_64\bin\rcc.exe -name res --no-zstd ..\..\res.qrc -o debug\qrc_res.cpp
 
 compiler_moc_predefs_make_all: debug/moc_predefs.h
@@ -889,6 +888,7 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/QT/6.10.1/mingw_64/include/QtCore/qtimezone.h \
 		C:/QT/6.10.1/mingw_64/include/QtCore/QFile \
 		C:/QT/6.10.1/mingw_64/include/QtCore/QFileInfo \
+		C:/QT/6.10.1/mingw_64/include/QtCore/QCoreApplication \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/QMessageBox \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qdialog.h \
