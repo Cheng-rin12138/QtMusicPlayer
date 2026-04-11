@@ -22,6 +22,9 @@ public slots:
     void listvisible();
     void prevmusic();
     void nextmusic();
+    void updateProgress(qint64 position);   // 实时更新进度
+    void updateDuration(qint64 duration);   // 更新总时长
+    void onSliderMoved(int position);       // 拖拽进度条跳转
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -40,5 +43,6 @@ private:
     QAudioOutput * m_audiooutput=nullptr;
     QStringList m_musicpath;
     int m_currentIndex = -1;
+    bool m_isSliderBeingDragged = false;    // 标记是否正在拖拽进度条
 };
 #endif // MAINWINDOW_H

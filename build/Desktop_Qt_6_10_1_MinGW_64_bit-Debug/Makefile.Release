@@ -114,6 +114,7 @@ release/qrc_res.cpp: ../../res.qrc \
 		../../Icon/head.png \
 		../../Icon/prev.png \
 		../../Icon/volume.png \
+		../../Icon/app.png \
 		../../Icon/replay.png \
 		../../Icon/add.png \
 		../../Icon/tail.png \
@@ -867,12 +868,18 @@ release/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlayout.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QLabel \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/qlabel.h \
+		C:/QT/6.10.1/mingw_64/include/QtGui/qpicture.h \
+		C:/QT/6.10.1/mingw_64/include/QtGui/qtextdocument.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/QListWidget \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/QMenuBar \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qmenubar.h \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qmenu.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QSlider \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/QStatusBar \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/qstatusbar.h \
+		C:/QT/6.10.1/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/QT/6.10.1/mingw_64/include/QtWidgets/QWidget \
 		C:/QT/6.10.1/mingw_64/include/QtGui/QIcon \
 		C:/QT/6.10.1/mingw_64/include/QtGui/QPixmap \

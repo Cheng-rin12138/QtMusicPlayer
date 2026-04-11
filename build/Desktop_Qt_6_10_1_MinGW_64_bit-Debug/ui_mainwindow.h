@@ -12,11 +12,14 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,7 +29,11 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QWidget *buttonbar;
-    QHBoxLayout *horizontalLayout_2;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *currentlabel;
+    QSlider *progressSlider;
+    QLabel *totallabel;
     QHBoxLayout *horizontalLayout;
     QPushButton *headBtn;
     QPushButton *prevBtn;
@@ -48,11 +55,32 @@ public:
         centralwidget->setObjectName("centralwidget");
         buttonbar = new QWidget(centralwidget);
         buttonbar->setObjectName("buttonbar");
-        buttonbar->setGeometry(QRect(0, 500, 1141, 161));
+        buttonbar->setGeometry(QRect(0, 520, 1100, 111));
         buttonbar->setStyleSheet(QString::fromUtf8("background-color: rgba(230, 230,230, 0.9);\n"
 "border-top: 1px solid rgba(255,255,255,0.1);"));
-        horizontalLayout_2 = new QHBoxLayout(buttonbar);
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        verticalLayout = new QVBoxLayout(buttonbar);
+        verticalLayout->setObjectName("verticalLayout");
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        currentlabel = new QLabel(buttonbar);
+        currentlabel->setObjectName("currentlabel");
+
+        horizontalLayout_3->addWidget(currentlabel);
+
+        progressSlider = new QSlider(buttonbar);
+        progressSlider->setObjectName("progressSlider");
+        progressSlider->setOrientation(Qt::Orientation::Horizontal);
+
+        horizontalLayout_3->addWidget(progressSlider);
+
+        totallabel = new QLabel(buttonbar);
+        totallabel->setObjectName("totallabel");
+
+        horizontalLayout_3->addWidget(totallabel);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
         headBtn = new QPushButton(buttonbar);
@@ -91,7 +119,7 @@ public:
         horizontalLayout->addWidget(list);
 
 
-        horizontalLayout_2->addLayout(horizontalLayout);
+        verticalLayout->addLayout(horizontalLayout);
 
         musicList = new QListWidget(centralwidget);
         musicList->setObjectName("musicList");
@@ -99,6 +127,9 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         musicList->raise();
         buttonbar->raise();
+        totallabel->raise();
+        progressSlider->raise();
+        currentlabel->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1153, 22));
@@ -115,6 +146,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        currentlabel->setText(QCoreApplication::translate("MainWindow", "0:00", nullptr));
+        totallabel->setText(QCoreApplication::translate("MainWindow", "0:00", nullptr));
         headBtn->setText(QString());
         prevBtn->setText(QString());
         playBtn->setText(QString());

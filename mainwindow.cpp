@@ -13,6 +13,46 @@
 
 #include<QMessageBox>
 
+QString formatTime(qint64 ms)
+{
+    int totalSeconds = ms / 1000;
+    int minutes = totalSeconds / 60;
+    int seconds = totalSeconds % 60;
+    return QString("%1:%2")
+        .arg(minutes, 2, 10, QChar('0'))
+        .arg(seconds, 2, 10, QChar('0'));
+}
+
+// 实时更新进度条和当前时间
+void MainWindow::updateProgress(qint64 position)
+{
+    // 如果正在拖拽，不更新进度条，避免冲突抖动
+    if (m_isSliderBeingDragged)
+        return;
+
+    // 设置进度条值
+    ui->progressSlider->setValue(position);
+    // 更新当前时间
+    ui->currentlabel->setText(formatTime(position));
+}
+
+// 更新总时长
+void MainWindow::updateDuration(qint64 duration)
+{
+    // 设置进度条最大值
+    ui->progressSlider->setRange(0, duration);
+    // 更新总时间
+    ui->totallabel->setText(formatTime(duration));
+}
+
+// 拖拽进度条跳转播放
+void MainWindow::onSliderMoved(int position)
+{
+    // 跳转到指定位置
+    m_player->setPosition(position);
+    // 更新当前时间
+    ui->currentlabel->setText(formatTime(position));
+}
 QString MainWindow::getBackgroundDir()
 {
     // exe同级目录（打包后用）
@@ -201,6 +241,27 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->musicList,&QListWidget::itemClicked,this,&MainWindow::playSelectMusic);
     connect(ui->prevBtn, &QPushButton::clicked, this, &MainWindow::prevmusic);
     connect(ui->nextBtn, &QPushButton::clicked, this, &MainWindow::nextmusic);
+
+    connect(m_player, &QMediaPlayer::mediaStatusChanged, this, [this](QMediaPlayer::MediaStatus status){
+        if (status == QMediaPlayer::EndOfMedia) {
+            m_player->setPosition(0);  // 回到歌曲开头
+            m_player->play();          // 继续播放
+            //nextmusic();
+        }
+    });
+    // 1. 播放位置变化 → 更新进度条
+    connect(m_player, &QMediaPlayer::positionChanged,this, &MainWindow::updateProgress);
+    // 2. 媒体时长变化 → 更新总时长
+    connect(m_player, &QMediaPlayer::durationChanged,this, &MainWindow::updateDuration);
+    // 3. 进度条被拖拽 → 跳转播放
+    connect(ui->progressSlider, &QSlider::sliderMoved,this, &MainWindow::onSliderMoved);
+    // 4. 标记拖拽状态（避免更新冲突，防止进度条抖动）
+    connect(ui->progressSlider, &QSlider::sliderPressed,[this]() { m_isSliderBeingDragged = true ;});
+    connect(ui->progressSlider, &QSlider::sliderReleased,[this]() { m_isSliderBeingDragged = false ;});
+    // 初始化时间显示
+    ui->currentlabel->setText("00:00");
+    ui->totallabel->setText("00:00");
+    ui->progressSlider->setValue(0);
 }
 
 

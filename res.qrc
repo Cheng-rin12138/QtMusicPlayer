@@ -16,5 +16,6 @@
         <file>Icon/volume.png</file>
         <file>Icon/volumedown.png</file>
         <file>Icon/volumeup.png</file>
+        <file>Icon/app.png</file>
     </qresource>
 </RCC>
