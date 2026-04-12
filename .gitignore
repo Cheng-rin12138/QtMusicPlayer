@@ -1,0 +1,21 @@
+# 屏蔽我们需要移除的文件夹
+music/
+background/
+
+# Qt 项目编译产生的文件，不需要上传
+build/
+*.pro.user
+*.pro.user.*
+*.qmlc
+*.qrc
+Makefile*
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.log
+.DS_Store
+Thumbs.db
+.qt/
